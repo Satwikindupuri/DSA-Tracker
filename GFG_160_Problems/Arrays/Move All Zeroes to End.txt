@@ -1,0 +1,46 @@
+/*
+ * 🔹 Problem: Move All Zeroes to End
+ * 🔗 Link: https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/move-all-zeroes-to-end-of-array0751
+ * ✅ Status: Solved
+ *
+ * 🧾 Description:
+ * Given an array of positive integers arr[], return the second largest element from the array.
+ * If the second largest element doesn't exist (all elements are same), return -1.
+ *
+ * 🧪 Example:
+ * Input: arr[] = [12, 35, 1, 10, 34, 1]
+ * Output: 34
+ * Explanation: The largest element is 35, second largest is 34
+ */
+
+
+
+// User function Template for Java
+
+class Solution {
+    void pushZerosToEnd(int[] arr) {
+        // code here
+        ArrayList<Integer> arr1=new ArrayList<>();
+        int c=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]!=0)
+            {
+                arr1.add(arr[i]);
+            }
+            else
+            {
+                c++;
+            }
+        }
+        for(int i=0;i<c;i++)
+        {
+            arr1.add(0);
+        }
+        for(int i=0;i<arr.length;i++)
+        {
+            arr[i]=arr1.get(i);
+        }
+        
+    }
+}
