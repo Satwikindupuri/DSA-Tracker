@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DSA Template Generator</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f4f4f4; }
+    textarea, input, button { width: 100%; margin-top: 10px; font-size: 14px; }
+    textarea { height: 120px; }
+    #output { white-space: pre-wrap; background: #fff; padding: 15px; margin-top: 20px; border-radius: 6px; border: 1px solid #ccc; }
+    .label { font-weight: bold; margin-top: 20px; display: block; }
+  </style>
+</head>
+<body>
+
+  <h2>🚀 DSA Code Template Generator</h2>
+
+  <label class="label" for="title">Problem Title</label>
+  <input type="text" id="title" placeholder="Second Largest">
+
+  <label class="label" for="platform">Platform</label>
+  <input type="text" id="platform" placeholder="e.g. GeeksforGeeks">
+
+  <label class="label" for="link">Problem Link</label>
+  <input type="text" id="link" placeholder="e.g. https://...">
+
+  <label class="label" for="status">Status</label>
+  <input type="text" id="status" placeholder="e.g. Solved ✅ or Pending ❌">
+
+  <label class="label" for="Description">Description</label>
+  <input type="text" id="Description" placeholder="e.g. Find the second largest element in an array">
+
+  <label class="label" for="notes">Notes / Approach</label>
+  <input type="text" id="notes" placeholder="e.g. Used sorting and reverse scan">
+
+  <label class="label" for="language">Language</label>
+  <input type="text" id="language" placeholder="e.g. Java, Python, C++">
+
+  <label class="label" for="code">Paste Your Code</label>
+  <textarea id="code" placeholder="Paste your raw code here..."></textarea>
+
+  <button onclick="generateTemplate()">Generate Template</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generateTemplate() {
+      const title = document.getElementById("title").value.trim();
+      const platform = document.getElementById("platform").value.trim();
+      const link = document.getElementById("link").value.trim();
+      const status = document.getElementById("status").value.trim();
+      const notes = document.getElementById("notes").value.trim();
+      const language = document.getElementById("language").value.trim();
+      const code = document.getElementById("code").value.trim();
+      const description = document.getElementById("Description").value.trim(); // <-- Add this line
+
+      const commentStyle = language.toLowerCase().includes("python") ? ['"""', '"""'] : ['/*', '*/'];
+
+      const template = `${commentStyle[0]}
+🔹 Problem: ${title}
+🔗 Platform: ${platform}
+🔗 Link: ${link}
+✅ Status: ${status}
+Description: ${description}
+
+🧾 Notes: ${notes}
+${commentStyle[1]}
+
+${code}
+`;
+
+      document.getElementById("output").innerText = template;
+    }
+  </script>
+
+</body>
+</html>
