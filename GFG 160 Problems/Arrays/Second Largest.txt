@@ -1,0 +1,37 @@
+/*
+ * 🔹 Problem: Second Largest Element in an Array
+ * 🔗 Link: https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/second-largest3735
+ * ✅ Status: Solved
+ *
+ * 🧾 Description:
+ * Given an array of positive integers arr[], return the second largest element from the array.
+ * If the second largest element doesn't exist (all elements are same), return -1.
+ *
+ * 🧪 Example:
+ * Input: arr[] = [12, 35, 1, 10, 34, 1]
+ * Output: 34
+ * Explanation: The largest element is 35, second largest is 34
+ */
+
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        // code here
+        if(arr.length == 0 || arr.length <2)
+        {
+            return -1;
+        }
+        //TreeSet<Integer> tr=new TreeSet
+        Arrays.sort(arr);
+        int max=arr[arr.length-1];
+        int res=0;
+        for(int i=arr.length-2;i>=0;i--)
+        {
+            if(arr[i]<max)
+            {
+                return arr[i];
+                //break;
+            }
+        }
+        return -1;
+    }
+}
